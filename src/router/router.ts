@@ -1,4 +1,5 @@
 import {createRouter, createWebHistory} from "vue-router";
+import {authors} from "../assets/defaultAuthors";
 import AuthorsList from "../components/AuthorsList.vue";
 import Welcome from "../components/Welcome.vue";
 
@@ -8,6 +9,9 @@ const router = createRouter({
         {
             path: '/authors',
             name: 'authors',
+            props: {
+                authors: authors
+            },
             component: AuthorsList
         },
         {

@@ -8,35 +8,24 @@
 </template>
   
   <script lang="ts">
-  import { defineComponent } from "vue";
-  import {getBooks} from "../api/api";
-  
-  interface Author {
-    name: string;
-    books: string[]
-  }
+  import { defineComponent, PropType } from "vue";
+  import {Author} from "../assets/defaultAuthors";
+//   import {getBooks} from "../api/api";
   
   export default defineComponent({
     name: "App",
     components: {},
-  
-    data() {
-      return {
-        authors: [
-          {name: "Фёдор Михайлович Достоевский", books: []} as Author,
-          {name: "Пушкин Александр Сергеевич", books: []} as Author,
-          {name: "Жюль Верн", books: []} as Author,
-          {name: "Теодор Драйзер", books: []} as Author,
-          {name: "Толстой Лев Николаевич", books: []} as Author
-        ]
-      }
+    props: {
+        authors: {
+            type: Array as PropType<Author[]>
+        }
     },
   
     mounted() {
-      this.authors.forEach(async (author) => {
-        const books = await getBooks(author.name);
-        author.books = [...books]
-      });
+    //   this.authors.forEach(async (author) => {
+    //     const books = await getBooks(author.name);
+    //     author.books = [...books]
+    //   });
     }
   })
   
