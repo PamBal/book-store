@@ -2,6 +2,9 @@
     <div class="container">
         <div class="title">Навигация</div>
         <div class="router-link">
+            <router-link :to="{name: 'home'}">На главную</router-link>
+        </div>
+        <div class="router-link">
             <router-link :to="{name: 'authors'}">Список авторов</router-link>
         </div>
     </div>

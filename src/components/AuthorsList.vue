@@ -2,7 +2,7 @@
     <div class="list">
         <div class="title">Авторы</div>
         <div v-for="author in authors" :key="author.name" class="author">
-            {{ author.name }}
+            <router-link :to="{name: 'books', params: {id: author.name}}">{{ author.name }}</router-link>
         </div>
     </div>
 </template>
@@ -13,8 +13,7 @@
 //   import {getBooks} from "../api/api";
   
   export default defineComponent({
-    name: "App",
-    components: {},
+    name: "AuthorsList",
     props: {
         authors: {
             type: Array as PropType<Author[]>
