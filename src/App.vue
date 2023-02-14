@@ -1,25 +1,8 @@
 <template>
-  <AuthorsList />
+  <Navigation />
+  <router-view></router-view>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import AuthorsList from "./components/AuthorsList.vue";
-
-interface Author {
-  name: string;
-  books: string[]
-}
-
-export default defineComponent({
-  name: "App",
-  components: {
-    AuthorsList
-  },
-})
-
+<script setup lang="ts">
+  import Navigation from "../src/components/Navigation.vue";
 </script>
-
-<style scoped>
-
-</style>
