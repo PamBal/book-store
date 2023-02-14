@@ -5,9 +5,12 @@ const Api = axios.create({
 });
 
 export const getBooks = async (author: string) => {
-    const {data} = await Api.get("", { params: {
+    const {data: {items}} = await Api.get("", { params: {
         q: author
     } });
+
+    const books: string[] = [];
+    items.forEach(({volumeInfo: {title}}: {volumeInfo: {[key:string]: any}}) => books.push(title));
     
-    return data;
+    return books;
 }
