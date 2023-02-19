@@ -4,33 +4,38 @@
         <div v-for="author in authors" :key="author.name" class="author">
             <router-link :to="{name: 'books', params: {id: author.name}}">{{ author.name }}</router-link>
         </div>
+        <Button 
+            title="Добавить автора"
+            @button-clicked="addAuthor"
+        />
     </div>
 </template>
   
-  <script lang="ts">
-  import { defineComponent, PropType } from "vue";
-  import {Author} from "../assets/defaultAuthors";
-//   import {getBooks} from "../api/api";
-  
-  export default defineComponent({
-    name: "AuthorsList",
-    props: {
-        authors: {
-            type: Array as PropType<Author[]>
+<script lang="ts">
+    import { defineComponent, PropType } from "vue";
+    import {Author} from "../assets/defaultAuthors";
+    import Button from "../components/UI/Button.vue";
+
+    export default defineComponent({
+        name: "AuthorsList",
+        components: {
+            Button
+        },
+        props: {
+            authors: {
+                type: Array as PropType<Author[]>
+            }
+        },
+        methods: {
+            addAuthor() {
+                console.log("test");
+            }
         }
-    },
+    })
   
-    mounted() {
-    //   this.authors.forEach(async (author) => {
-    //     const books = await getBooks(author.name);
-    //     author.books = [...books]
-    //   });
-    }
-  })
+</script>
   
-  </script>
-  
-  <style scoped lang="scss">
+<style scoped lang="scss">
     .list {
         display: flex;
         flex-direction: column;
@@ -48,5 +53,5 @@
             margin: 5px 0;
         }
     }
-  </style>
+</style>
   
