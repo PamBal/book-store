@@ -28,7 +28,7 @@
         },
         methods: {
             addAuthor() {
-                console.log("test");
+                this.$router.push("/add");
             }
         }
     })

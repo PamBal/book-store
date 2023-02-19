@@ -30,7 +30,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .button {
         height: 40px;
         display: flex;
@@ -39,9 +39,9 @@ export default defineComponent({
         border-radius: 4px;
         cursor: pointer;
         color: white;
-    }
 
-    .positive {
-        background: rgb(128, 209, 128);
+        &.positive {
+            background: rgb(128, 209, 128);
+        }
     }
 </style>

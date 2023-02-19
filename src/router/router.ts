@@ -3,6 +3,7 @@ import {authors} from "../assets/defaultAuthors";
 import AuthorsList from "../components/AuthorsList.vue";
 import Welcome from "../components/Welcome.vue";
 import BookList from "../components/BookList.vue";
+import AddAuthor from "../components/AddAuthor.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,6 +20,11 @@ const router = createRouter({
             path: '/authors/:id',
             name: 'books',
             component: BookList
+        },
+        {
+            path: '/add',
+            name: 'add',
+            component: AddAuthor
         },
         {
             path: '/',
