@@ -3,18 +3,60 @@
         <div class="title">
             Добавить автора
         </div>
-        <Input />
+        <Input
+            @onChange="changeAuthorName"
+        />
+        <div class="controls">
+            <Button 
+                :title="'Добавить'"
+                @button-clicked="addAuthor"
+            />
+            <Button 
+                :title="'Назад'" 
+                :positive="false"
+                @button-clicked="back"
+            />
+        </div>
     </div>
 </template>
 
 <script lang="ts">
 import Input from "../components/UI/Input.vue";
+import Button from "../components/UI/Button.vue";
+import { authors } from "../assets/defaultAuthors";
 import {defineComponent} from "vue";
 
 export default defineComponent({
     name: "AddAuthor",
     components: {
-        Input
+        Input,
+        Button
+    },
+
+    data() {
+        return {
+            author: ''
+        }
+    },
+
+    methods: {
+        back() {
+            this.$router.push('/authors');
+        },
+
+        addAuthor() {
+            if (this.author !== '') {
+                authors.push({
+                    name: this.author,
+                    books: [],
+                });
+                this.back();
+            }
+        },
+
+        changeAuthorName(name: string) {
+            this.author = name;
+        }
     }
 });
 </script>
@@ -32,6 +74,12 @@ export default defineComponent({
         .title {
             font-weight: bold;
             font-size: 20px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
         }
     }
 </style>

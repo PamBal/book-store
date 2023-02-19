@@ -1,7 +1,7 @@
 <template>
     <div 
         class="button" 
-        :class="{ positive }"
+        :class="positive ? 'positive' : 'negative'"
         @click="onClick"
     >
         {{ title }}
@@ -42,6 +42,10 @@ export default defineComponent({
 
         &.positive {
             background: rgb(128, 209, 128);
+        }
+
+        &.negative {
+            background: rgb(227, 91, 91);
         }
     }
 </style>

@@ -1,12 +1,28 @@
 <template>
-    <input class="input" />
+    <input 
+        class="input"
+        v-model="text"
+        @input="onChange"
+    />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-    name: "Input"
+    name: "Input",
+    
+    data () {
+        return {
+            text: ""
+        }
+    },
+
+    methods: {
+        onChange() {
+            this.$emit("onChange", this.text);
+        }
+    }
 });
 
 </script>
